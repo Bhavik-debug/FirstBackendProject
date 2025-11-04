@@ -1,0 +1,13 @@
+Project To-Dos (URL Shortener Service)
+
+Goal:
+Design a URL shortener service that:
+- Takes a valid URL
+- Returns a shortened URL
+- Redirects users to the original URL
+- Tracks total visits/clicks on each shortened URL
+
+Routes:
+POST /url - Generates a new short URL and returns it in the format example.com/random-id
+GET /:id - Redirects the user to the original URL
+GET /url/analytics/:id - Returns the number of clicks/visits for the provided short id
