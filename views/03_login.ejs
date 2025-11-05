@@ -103,10 +103,10 @@
             text-shadow: 0 0 8px rgba(128, 204, 255, 0.6);
         }
 
-        /* Show error box if exists */
         .error-box {
             width: 420px;
             margin: 10px auto;
+            margin-bottom: 30px;
             padding: 12px;
             background: rgba(255, 60, 60, 0.08);
             border-left: 4px solid #ff5555;
@@ -123,13 +123,25 @@
 <body>
     <h1>LogIn</h1>
 
+    <!-- ✅ Display error if passed from server -->
+    <% if (typeof error !== "undefined") { %>
+        <div class="error-box">
+            <%= error %>
+        </div>
+    <% } %>
+
     <form action="/user/login" method="post">
         <label for="">Email</label>
         <input type="email" required name="email">
+
         <label for="">Password</label>
         <input type="password" required name="password">
 
         <button type="submit">LogIn</button>
     </form>
+
+    <div class="switch-link">
+        Don't have an account? <a href="/signup">Sign Up</a>
+    </div>
 </body>
 </html>

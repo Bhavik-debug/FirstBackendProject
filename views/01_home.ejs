@@ -20,7 +20,6 @@
             text-align: center;
             font-size: 2.2rem;
             margin-bottom: 25px;
-            text-transform: uppercase;
             letter-spacing: 2px;
             color: #4db8ff;
             text-shadow: 0 0 10px rgba(77, 184, 255, 0.6);
@@ -152,11 +151,6 @@
 
 <body>
     <h1>URL Shortener</h1>
-
-    <% if (locals.id) { %>
-        <p>URL Generated: http://localhost:3000/<%= id %>
-        </p>
-        <% } %>
 
             <div>
                 <form method="POST" action="/url">

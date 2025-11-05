@@ -8,6 +8,7 @@ router.get('/', async (req, res) => {
     const allurls = await URL.find({createdBy:req.user._id})
     return res.render('01_home.ejs', {
         urls: allurls,
+        id: req.query.new || null, // ✅ pass newly created ID if available
     })
 })
 

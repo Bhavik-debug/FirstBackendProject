@@ -14,18 +14,14 @@ async function generateNewShortURL(req, res) {
             visitHistory: [],//because we are making new url that is why array here should be empty
             createdBy: req.user._id,
         });
-        const allUrls = await URL.find({});
-        return res.render("01_home.ejs", {
-            id: shortID,
-            urls: allUrls
-        });
-
-    } 
+        return res.redirect("/");
+    }
     catch (error) {
         console.error(error);
         return res.status(500).json({ err: "Server Error" });
     }
 }
+
 
 async function getAnalytics(req, res){
     const id = req.params.id;

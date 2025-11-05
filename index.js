@@ -42,7 +42,7 @@ app.get('/:id', async (req, res) => {
                     visitHistory: { timestamp: Date.now() }
                 } 
             }, // update
-            { new: true } // Ensures the updated document is returned
+            { new: true } // returning updated document
         );
         if (!entry) {
             return res.status(404).json({ error: "Short URL not found" });
