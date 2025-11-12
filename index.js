@@ -2,7 +2,7 @@ const express = require('express')
 const path = require('path')
 const {connectMongo} = require('./connect.js')
 const cookieParser = require('cookie-parser')
-const {restrictToLoggedInUserOnly, checkAuth} = require('./middleware/auth.js')
+const {checkForAuthentication, restrictTo} = require('./middleware/auth.js')
 
 const URL = require('./models/url.js')
 const User = require('./models/user')
@@ -26,10 +26,11 @@ app.set('views', path.resolve('./views'))//telling our server that all ejs files
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({extended:false}))
+app.use(checkForAuthentication);//will run always
 
-app.use('/url', restrictToLoggedInUserOnly, urlRoute);
+app.use('/url', restrictTo(["NORMAL","ADMIN"]), urlRoute);
 app.use('/user', userRoute);
-app.use('/', checkAuth, staticRoute);
+app.use('/', staticRoute);
 
 app.get('/:id', async (req, res) => {
     try {

@@ -10,7 +10,7 @@ async function UserSignUp(req, res){
         password,
     });
     return res.redirect('/login')
-}
+} 
 
 async function Userlogin(req, res){
     const {email, password} = req.body;
@@ -19,11 +19,11 @@ async function Userlogin(req, res){
         error: "Invalid Username or Password"
     })
     const token = setUser(user);
-    res.cookie('uid', token);
+    res.cookie('token', token);
     return res.redirect('/')
 }
 
 module.exports = {
     UserSignUp,
-    Userlogin,
+    Userlogin, 
 }

@@ -169,6 +169,7 @@
                             <th>Site to visit</th>
                             <th>Redirected id link</th>
                             <th>No of Visits</th>
+                            <th>User</th>
                         </thead>
 
                         <tbody>
@@ -185,9 +186,11 @@
                                             <%= url.shortId %>
                                         </a>
                                     </td>
-
                                     <td>
                                         <%= url.visitHistory.length %>
+                                    </td>
+                                    <td>
+                                        <%= url.createdBy.email%>
                                     </td>
                                 </tr>
                                 <% }) %>

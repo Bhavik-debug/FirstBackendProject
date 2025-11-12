@@ -7,6 +7,7 @@ function setUser(user) {
         {
             _id: user._id.toString(), // store only unique ID
             email: user.email,
+            role: user.role,
         },
         secret
     );
